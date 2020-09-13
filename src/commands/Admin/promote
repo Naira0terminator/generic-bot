@@ -1,0 +1,106 @@
+const { Command } = require('discord-akairo');
+
+module.exports = class promoteCmd extends Command {
+    constructor() {
+        super('promote', {
+            aliases: ['promote'],
+            userPermissions: ['ADMINISTRATOR'],
+            channel: 'guild',
+            args: [{
+                id: 'member',
+                type: 'member',
+            },
+            {
+                id: 'helper1',
+                match: 'flag',
+                prefix: 'helper'
+            },
+            {
+                id: 'mod',
+                match: 'flag',
+                prefix: 'mod'
+
+            },
+            {
+                id: 'enforcer1',
+                match: 'flag',
+                prefix: 'senior'
+            },
+            {
+                id: 'pm1',
+                match: 'flag',
+                prefix: 'pm'
+            }
+        ],
+        });
+    }
+    async exec(message, args) {
+        if(!args.member) return message.util.reply('You must mention a user to demote them!')
+        
+        if(args.helper1) {
+            args.member.addRole('646423843279208469');
+
+            const helperembed = this.client.util.embed()
+            .setDescription(`**${args.member.user.username}** has been promoted to Helper`)
+            .setColor('RANDOM')
+            message.util.send(helperembed)
+
+            const helperdm = this.client.util.embed()
+            .setDescription(`${args.member.user.username} you have been promoted to a helper. this is the first step towards becoming a moderator. to get promoted you must show that you can enforce the rules well and stop drama when it happens. you can use the \`-warn\` command`)
+            .setColor('RANDOM')
+            args.member.send(helperdm)
+        }
+
+        if(args.mod) {
+
+            args.member.addRole('646764942795472906');
+            args.member.addRole('666448061639426070');
+            args.member.removeRole('646423843279208469');
+
+            const peaceembed = this.client.util.embed()
+            .setDescription(`**${args.member.user.username}** has been promoted to a moderator and is now offically part of the staff team!`)
+            .setColor('RANDOM')
+            message.util.send(peaceembed)
+
+            const peacedm = this.client.util.embed()
+            .setDescription(`${args.member.user.username} you have been promoted to a moderator. you have the same duties as before but with added authority and now you can mute members and see logs and staff chat welcome to the staff team`)
+            .setColor('RANDOM')
+            args.member.send(peacedm)
+        }
+
+        if(args.enforcer1) {
+
+            args.member.addRole('663625243470069773');
+            args.member.removeRole('646764942795472906');
+            args.member.addRole('666448061639426070');
+            args.member.removeRole('646423843279208469');
+
+            const enforcerembed = this.client.util.embed()
+            .setDescription(`**${args.member.user.username}** is now a senior staff member!`)
+            .setColor('RANDOM')
+            message.util.send(enforcerembed)
+
+            const enforcerdm = this.client.util.embed()
+            .setDescription(`${args.member.user.username} you have been promoted to a senior staff member which means your job is the same as before but with added responsibility and power. you can now ban members using \`-ban\` and you are responsible for guiding other staff members`)
+            .setColor("RANDOM")
+            args.member.send(enforcerdm)
+        }
+
+        if(args.pm1) {
+
+           await args.member.addRole('647399478965305374'),
+           await args.member.setNickname(`${args.member.user.username} | DM to partner`);
+
+           const pmembed = this.client.util.embed()
+           .setDescription(`**${args.member.user.username}** is now a partnership manager!`)
+           .setColor('RANDOM')
+           message.channel.send(pmembed)
+
+           const pmdm = this.client.util.embed()
+           .setDescription(`welcome to the partner team were glad too have you.\n\nwrite \`,ad\` for our server description.\n\n**Information**:\n\n💠We do not have a member requirement you can partner with servers of any size\n\n\💠 servers you are partering with must not be toxic and they must follow tos\n\n\💠 you are allowed to deny any partnership if they require you too rep or ping everyone or here\n\n\💠 you are also allowed to deny any partnership if a person is being very rude.\n\nif you have anymore questions feel free too dm <@341891209100394497>`)
+           .setColor('RANDOM')
+           args.member.send(pmdm)
+        }
+            
+    }
+}

@@ -1,0 +1,19 @@
+const mysql = require('mysql');
+
+const sql = mysql.createConnection({
+    host: 'localhost',
+    user: 'naira',
+    password: '900x20',
+    database: 'botdb',
+    port: 3306,
+});
+
+sql.connect( err => {
+    if(err) console.log(`mysql error: ${err}`);
+
+    sql.query('create database if not exists botdb');
+    console.log('$ | MySQL successfully connected.');
+});
+
+
+module.exports = sql;

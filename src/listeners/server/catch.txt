@@ -1,0 +1,53 @@
+const { Listener } = require('discord-akairo');
+const { createMessageCollector, MessageEmbed } = require('discord.js');
+
+module.exports = class catchEvent extends Listener {
+    constructor() {
+        super('catch', {
+            emitter: 'client',
+            event: 'message',
+        });
+    }
+    async exec(message) {
+
+        let catchChannels = ['617958131091243019', '716601396954267699'];
+        let isCaught = false;
+        let enabled = true;
+
+        if(!enabled) return;
+
+        if(message.member.user.bot) return;
+
+        const prefixArray = ['/', '!', '.', '<'];
+        const suffixArray = ['get', 'catch', 'gimme', 'mine'];
+        const prefix = prefixArray[Math.floor(Math.random() * prefixArray.length)];
+        const suffix = suffixArray[Math.floor(Math.random() * suffixArray.length)];
+        const catchWord = prefix + suffix;
+        
+       if(catchChannels.includes(message.channel.id)) {
+          const chance = Math.floor(Math.random() * 100);
+
+          if(chance < 5) {
+            const filter = message => message.content.toLowerCase().includes(catchWord) && !message.member.user.bot; 
+            const collector = message.channel.createMessageCollector(filter, { time: 15000});
+            message.channel.send(`🐱 | a wild cat appears catch it with \`${catchWord}\``).then(m => m.delete({timeout: 15000}));
+
+            if(message.content.includes(catchWord)) message.delete();
+
+            collector.on('collect', message => {
+                message.delete({timeout: 3000});
+                message.channel.send(`caught by **${message.author.tag}**`).then(m => m.delete({timeout: 5000}));
+                isCaught = true
+                collector.stop();
+            });
+
+            collector.on('end', collected => {
+                // alternative way to delete collected messages. this deletes it at the end instead of 3 seconds after collected.
+                //collected.forEach(msg => msg.delete());
+                if(isCaught === false) message.channel.send('no one caught it in time!').then(m => m.delete({timeout: 10000}));
+
+            });
+          }
+        }
+    }
+}
