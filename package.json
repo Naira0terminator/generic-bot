@@ -4,6 +4,7 @@
   "description": "1) a fully customizable leveling system\r 2) a music player module\r 3) complete moderation commands with web logging and a mod logger.\r 4) a lot of utility and fun commands.",
   "main": "main.js",
   "dependencies": {
+    "@vitalets/google-translate-api": "^4.0.0",
     "bluebird": "^3.7.2",
     "canvas": "^2.6.1",
     "cheerio": "^1.0.0-rc.3",
@@ -26,8 +27,8 @@
     "sequelize": "^5.22.3",
     "sherlock": "^1.1.0",
     "sqlite3": "^5.0.0",
-    "ytdl-core-discord": "^1.2.1",
-    "ytdl-core": "^3.2.2"
+    "ytdl-core": "^3.2.2",
+    "ytdl-core-discord": "^1.2.1"
   },
   "devDependencies": {},
   "scripts": {
