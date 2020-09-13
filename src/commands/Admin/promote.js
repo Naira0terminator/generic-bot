@@ -79,13 +79,13 @@ module.exports = class promoteCmd extends Command {
         } 
         
         if(helper)
-            promote('helper', {add:'646423843279208469'}); 
+            return promote('helper', {add:'646423843279208469'}); 
         if(mod)
-            promote('mod', {add: ['646764942795472906', '666448061639426070'], remove: '646423843279208469'});
+            return promote('mod', {add: ['646764942795472906', '666448061639426070'], remove: '646423843279208469'});
         if(senior)
-            promote('senior', {add: ['663625243470069773', '666448061639426070'], remove: ['646764942795472906', '646423843279208469']});
+            return promote('senior', {add: ['663625243470069773', '666448061639426070'], remove: ['646764942795472906', '646423843279208469']});
         if(pm)
-            promote('pm', {add: ['647399478965305374']});
+            return promote('pm', {add: ['647399478965305374']});
 
     }
 }
