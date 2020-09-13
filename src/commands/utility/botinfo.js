@@ -24,14 +24,14 @@ module.exports = class botinfoCmd extends Command {
         .setAuthor(`${this.client.user.username}`)
         .setDescription(stripIndents
             `[Repository](https://github.com/Naira0terminator/generic-bot)
-            
+
             **Uptime**: \`${uptime.trim()}\`\n
             **Commands**: \`${this.client.commandHandler.modules.size}\`\n
             **Library**: \`Discord.js\`\n
             **Heap memory usage**: \`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB / ${Math.round(os.totalmem()/1024/1024)} GB\`\n
             **Total servers**: \`${this.client.guilds.cache.size}\``)
         .setThumbnail(this.client.user.displayAvatarURL())
-        .setFooter('Created by Naira#2819')
+        .setFooter('Created by Naira#0666')
         .setColor('RANDOM')
         message.util.send(infoembed)
 
