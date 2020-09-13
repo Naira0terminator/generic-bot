@@ -86,6 +86,5 @@ module.exports = class promoteCmd extends Command {
             return promote('senior', {add: ['663625243470069773', '666448061639426070'], remove: ['646764942795472906', '646423843279208469']});
         if(pm)
             return promote('pm', {add: ['647399478965305374']});
-
     }
 }
