@@ -1,0 +1,150 @@
+Date : 2020-09-15 02:24:12
+Directory : c:\Users\Arian\Documents\bots\little devil
+Total : 107 files,  8508 codes, 35 comments, 866 blanks, all 9409 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |        103 |      4,998 |         35 |        858 |      5,891 |
+| JSON       |          2 |      3,490 |          0 |          2 |      3,492 |
+| Markdown   |          1 |         14 |          0 |          5 |         19 |
+| Batch      |          1 |          6 |          0 |          1 |          7 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                              | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                 |        107 |      8,508 |         35 |        866 |      9,409 |
+| src                                                                               |        102 |      4,994 |         35 |        854 |      5,883 |
+| src\commands                                                                      |         78 |      3,817 |         23 |        631 |      4,471 |
+| src\commands\Admin                                                                |         12 |        515 |          0 |         76 |        591 |
+| src\commands\Fun                                                                  |         16 |        575 |          0 |        112 |        687 |
+| src\commands\Music                                                                |          8 |        257 |          0 |         52 |        309 |
+| src\commands\level                                                                |          6 |        394 |          2 |         55 |        451 |
+| src\commands\moderation                                                           |          9 |        551 |          8 |        108 |        667 |
+| src\commands\settings                                                             |          7 |        466 |          3 |         64 |        533 |
+| src\commands\utility                                                              |         20 |      1,059 |         10 |        164 |      1,233 |
+| src\inhibitor                                                                     |          1 |         13 |          0 |          2 |         15 |
+| src\listeners                                                                     |         16 |        516 |         11 |        126 |        653 |
+| src\listeners\client                                                              |          2 |         39 |          0 |         10 |         49 |
+| src\listeners\command                                                             |          3 |         52 |          0 |         13 |         65 |
+| src\listeners\server                                                              |         11 |        425 |         11 |        103 |        539 |
+| src\models                                                                        |          1 |         22 |          0 |          5 |         27 |
+| src\structures                                                                    |          6 |        626 |          1 |         90 |        717 |
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                          | language   | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\Arian\Documents\bots\little devil\README.md                              | Markdown   |         14 |          0 |          5 |         19 |
+| c:\Users\Arian\Documents\bots\little devil\main.js                                | JavaScript |          4 |          0 |          4 |          8 |
+| c:\Users\Arian\Documents\bots\little devil\package-lock.json                      | JSON       |      3,443 |          0 |          1 |      3,444 |
+| c:\Users\Arian\Documents\bots\little devil\package.json                           | JSON       |         47 |          0 |          1 |         48 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Admin\blacklist.js        | JavaScript |         30 |          0 |          4 |         34 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Admin\db.js               | JavaScript |         75 |          0 |          6 |         81 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Admin\demote.js           | JavaScript |         48 |          0 |         11 |         59 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Admin\die.js              | JavaScript |         15 |          0 |          3 |         18 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Admin\emit.js             | JavaScript |         31 |          0 |          4 |         35 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Admin\load.js             | JavaScript |         29 |          0 |          7 |         36 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Admin\log.js              | JavaScript |         37 |          0 |          3 |         40 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Admin\makepm.js           | JavaScript |         43 |          0 |         11 |         54 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Admin\promote.js          | JavaScript |         79 |          0 |         12 |         91 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Admin\reload.js           | JavaScript |         50 |          0 |          9 |         59 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Admin\test.js             | JavaScript |         58 |          0 |          4 |         62 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Admin\test2.js            | JavaScript |         20 |          0 |          2 |         22 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Fun\8ball.js              | JavaScript |         22 |          0 |          6 |         28 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Fun\F.js                  | JavaScript |         30 |          0 |          7 |         37 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Fun\Topic.js              | JavaScript |         21 |          0 |          2 |         23 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Fun\aww.js                | JavaScript |         41 |          0 |          5 |         46 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Fun\coinFlip.js           | JavaScript |         34 |          0 |         12 |         46 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Fun\cookie.js             | JavaScript |         37 |          0 |          7 |         44 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Fun\dadjoke.js            | JavaScript |         20 |          0 |          2 |         22 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Fun\fuck.js               | JavaScript |         25 |          0 |          5 |         30 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Fun\gay.js                | JavaScript |         28 |          0 |          4 |         32 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Fun\love.js               | JavaScript |         44 |          0 |          7 |         51 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Fun\meme.js               | JavaScript |         29 |          0 |          9 |         38 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Fun\pp.js                 | JavaScript |         32 |          0 |          6 |         38 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Fun\say.js                | JavaScript |         31 |          0 |          7 |         38 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Fun\suffer.js             | JavaScript |         42 |          0 |          7 |         49 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Fun\tags.js               | JavaScript |        113 |          0 |         20 |        133 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Fun\zucc.js               | JavaScript |         26 |          0 |          6 |         32 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Music\goto.js             | JavaScript |         27 |          0 |          5 |         32 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Music\leave.js            | JavaScript |         19 |          0 |          5 |         24 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Music\pause.js            | JavaScript |         30 |          0 |          5 |         35 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Music\play.js             | JavaScript |         97 |          0 |         17 |        114 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Music\queue.js            | JavaScript |         21 |          0 |          4 |         25 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Music\reset.js            | JavaScript |         22 |          0 |          8 |         30 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Music\resume.js           | JavaScript |         21 |          0 |          4 |         25 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\Music\skip.js             | JavaScript |         20 |          0 |          4 |         24 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\level\blacklist.js        | JavaScript |         70 |          0 |          9 |         79 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\level\lb.js               | JavaScript |         59 |          0 |          8 |         67 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\level\levelSettings.js    | JavaScript |         80 |          2 |         12 |         94 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\level\lvlrole.js          | JavaScript |         83 |          0 |         13 |         96 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\level\rank.js             | JavaScript |         33 |          0 |          5 |         38 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\level\set.js              | JavaScript |         69 |          0 |          8 |         77 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\moderation\ban.js         | JavaScript |         62 |          6 |         15 |         83 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\moderation\kick.js        | JavaScript |         52 |          0 |          9 |         61 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\moderation\massban.js     | JavaScript |         72 |          0 |         22 |         94 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\moderation\mute.js        | JavaScript |         73 |          0 |         14 |         87 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\moderation\purge.js       | JavaScript |         63 |          0 |          6 |         69 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\moderation\role.js        | JavaScript |         47 |          0 |         10 |         57 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\moderation\unban.js       | JavaScript |         35 |          0 |          7 |         42 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\moderation\unmute.js      | JavaScript |         61 |          0 |         10 |         71 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\moderation\warn.js        | JavaScript |         86 |          2 |         15 |        103 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\settings\catchSetting.js  | JavaScript |         61 |          0 |          9 |         70 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\settings\joinset.js       | JavaScript |         54 |          0 |          5 |         59 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\settings\logset.js        | JavaScript |         69 |          0 |          8 |         77 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\settings\muteset.js       | JavaScript |         95 |          1 |         14 |        110 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\settings\perms.js         | JavaScript |        110 |          0 |         13 |        123 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\settings\prefix.js        | JavaScript |         29 |          0 |          5 |         34 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\settings\settings.js      | JavaScript |         48 |          2 |         10 |         60 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\utility\activity.js       | JavaScript |         35 |          1 |          8 |         44 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\utility\avatar.js         | JavaScript |         40 |          0 |          5 |         45 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\utility\bans.js           | JavaScript |         21 |          0 |          3 |         24 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\utility\botinfo.js        | JavaScript |         34 |          0 |          6 |         40 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\utility\colorcheck.js     | JavaScript |         51 |          0 |          8 |         59 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\utility\embedBuilder.js   | JavaScript |         82 |          1 |          7 |         90 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\utility\help.js           | JavaScript |        118 |          2 |         13 |        133 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\utility\imgsearch.js      | JavaScript |         67 |          0 |          9 |         76 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\utility\math.js           | JavaScript |         30 |          0 |          4 |         34 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\utility\members.js        | JavaScript |         20 |          0 |          5 |         25 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\utility\msg.js            | JavaScript |         83 |          0 |         14 |         97 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\utility\ping.js           | JavaScript |         19 |          0 |          4 |         23 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\utility\profile.js        | JavaScript |         83 |          0 |         12 |         95 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\utility\remind.js         | JavaScript |         45 |          0 |          9 |         54 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\utility\roleManager.js    | JavaScript |         96 |          0 |         19 |        115 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\utility\roleinfo.js       | JavaScript |         55 |          0 |          9 |         64 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\utility\snipe.js          | JavaScript |         36 |          0 |          8 |         44 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\utility\translate.js      | JavaScript |         39 |          0 |          5 |         44 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\utility\user.js           | JavaScript |         36 |          0 |          5 |         41 |
+| c:\Users\Arian\Documents\bots\little devil\src\commands\utility\youtube.js        | JavaScript |         69 |          6 |         11 |         86 |
+| c:\Users\Arian\Documents\bots\little devil\src\inhibitor\blacklist.js             | JavaScript |         13 |          0 |          2 |         15 |
+| c:\Users\Arian\Documents\bots\little devil\src\listeners\client\disconnect.js     | JavaScript |         17 |          0 |          2 |         19 |
+| c:\Users\Arian\Documents\bots\little devil\src\listeners\client\ready.js          | JavaScript |         22 |          0 |          8 |         30 |
+| c:\Users\Arian\Documents\bots\little devil\src\listeners\command\blocker.js       | JavaScript |         23 |          0 |          6 |         29 |
+| c:\Users\Arian\Documents\bots\little devil\src\listeners\command\cooldown.js      | JavaScript |         16 |          0 |          4 |         20 |
+| c:\Users\Arian\Documents\bots\little devil\src\listeners\command\error.js         | JavaScript |         13 |          0 |          3 |         16 |
+| c:\Users\Arian\Documents\bots\little devil\src\listeners\server\automod.js        | JavaScript |         33 |          5 |          9 |         47 |
+| c:\Users\Arian\Documents\bots\little devil\src\listeners\server\catch.js          | JavaScript |         42 |          1 |         11 |         54 |
+| c:\Users\Arian\Documents\bots\little devil\src\listeners\server\guildBanAdd.js    | JavaScript |         46 |          1 |         12 |         59 |
+| c:\Users\Arian\Documents\bots\little devil\src\listeners\server\guildBanRemove.js | JavaScript |         36 |          1 |          9 |         46 |
+| c:\Users\Arian\Documents\bots\little devil\src\listeners\server\leveler.js        | JavaScript |         80 |          1 |         17 |         98 |
+| c:\Users\Arian\Documents\bots\little devil\src\listeners\server\memberAdd.js      | JavaScript |         46 |          0 |         10 |         56 |
+| c:\Users\Arian\Documents\bots\little devil\src\listeners\server\memberRemove.js   | JavaScript |         62 |          0 |         14 |         76 |
+| c:\Users\Arian\Documents\bots\little devil\src\listeners\server\message.js        | JavaScript |         19 |          0 |          7 |         26 |
+| c:\Users\Arian\Documents\bots\little devil\src\listeners\server\messageDelete.js  | JavaScript |         24 |          1 |          6 |         31 |
+| c:\Users\Arian\Documents\bots\little devil\src\listeners\server\messageEdit.js    | JavaScript |         18 |          1 |          5 |         24 |
+| c:\Users\Arian\Documents\bots\little devil\src\listeners\server\newChannel.js     | JavaScript |         19 |          0 |          3 |         22 |
+| c:\Users\Arian\Documents\bots\little devil\src\models\tags.js                     | JavaScript |         22 |          0 |          5 |         27 |
+| c:\Users\Arian\Documents\bots\little devil\src\structures\client.js               | JavaScript |         84 |          0 |         13 |         97 |
+| c:\Users\Arian\Documents\bots\little devil\src\structures\keyvSettings.js         | JavaScript |          3 |          0 |          2 |          5 |
+| c:\Users\Arian\Documents\bots\little devil\src\structures\modLogHandler.js        | JavaScript |          0 |          0 |          1 |          1 |
+| c:\Users\Arian\Documents\bots\little devil\src\structures\modLogs.js              | JavaScript |        120 |          1 |         21 |        142 |
+| c:\Users\Arian\Documents\bots\little devil\src\structures\redis.js                | JavaScript |        374 |          0 |         39 |        413 |
+| c:\Users\Arian\Documents\bots\little devil\src\structures\taskManager.js          | JavaScript |         45 |          0 |         14 |         59 |
+| c:\Users\Arian\Documents\bots\little devil\start.bat                              | Batch      |          6 |          0 |          1 |          7 |
+| Total                                                                             |            |      8,508 |         35 |        866 |      9,409 |
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

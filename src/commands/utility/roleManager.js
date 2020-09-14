@@ -109,7 +109,5 @@ module.exports = class roleManager extends Command {
                 return message.reply(`there was an error changing that roles name! ${err}`);
             }
         }
-
-           
     }
 }
