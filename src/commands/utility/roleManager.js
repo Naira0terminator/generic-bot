@@ -41,6 +41,18 @@ module.exports = class roleManager extends Command {
     }
     async exec(message, { values, c, h, m, n }) {
 
+        if(!values) 
+            return message.channel.send(this.client.util.embed()
+            .setTitle('Role Manager options')
+            .setDescription(
+                `to change a role use the command with one of the following flags and arguments.
+                
+                \`-c\` **role, color (hex or color name)** | changes role color
+                \`-n\` **role, role name** | changes a roles name
+                \`-h\` | hoists or dehoists a role
+                \`-m\` | sets a role to be mentionabale or unmentionable`)
+            .setColor('RANDOM'));
+
         let 
         role = values[0], 
         value = values[1];
@@ -60,7 +72,7 @@ module.exports = class roleManager extends Command {
             }
         }
 
-        else if(h) {
+        if(h) {
             try {
                 let isHoisted;
 
@@ -75,7 +87,7 @@ module.exports = class roleManager extends Command {
             }
         }
 
-        else if(m) {
+        if(m) {
             try {
                let isMentionable;
                
@@ -89,7 +101,7 @@ module.exports = class roleManager extends Command {
             }
         }
 
-        else if(n) {
+        if(n) {
             try {
                 role.setName(value);
                 return message.reply(`**${role.name}**'s name has been changed to \`${value}\``);
@@ -97,5 +109,7 @@ module.exports = class roleManager extends Command {
                 return message.reply(`there was an error changing that roles name! ${err}`);
             }
         }
+
+           
     }
 }
