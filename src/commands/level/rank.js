@@ -23,7 +23,7 @@ module.exports = class rankCmd extends Command {
         const exp = await this.client.redis.zscore(`guild[${message.guild.id}]-exp`, `${member.id}`);
 
         const level = await this.client.redis.zscore(`guild[${message.guild.id}]-exp-level`, `${member.id}`);
-        if(level <= 0) return message.reply('You are the provided member does not have a level! keep talking to earn exp');
+        if(level <= 0) return message.reply('The provided member does not have a rank. start talking to earn exp!');
 
         const precentage = exp / (150 * level);
         const progress = Math.round(10 * precentage);
