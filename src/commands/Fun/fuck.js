@@ -18,7 +18,7 @@ module.exports = class FuckCommand extends Command {
     }
     exec(message, { member }) {
 
-      let response = `**${message.member.username}** holds hands with **${member.user.username}**`;
+      let response = `**${message.author.username}** holds hands with **${member.user.username}**`;
         
       if(!member || member.id === message.author.id) response = `**${message.author.username}** is lonely`;
       
