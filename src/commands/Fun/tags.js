@@ -116,10 +116,8 @@ module.exports = class tagsAdd extends Command {
             }
         }
 
-       
-
         let tagMember = message.guild.members.cache.get(tag.get('userID'))
-        if(!tagMember) tagMember = 'Unknown';
+        //if(!tagMember) tagMember = 'Unknown';
 
         if(tag) {
             tag.increment('usage_count');

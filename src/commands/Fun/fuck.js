@@ -3,7 +3,7 @@ const { Command } = require('discord-akairo');
 module.exports = class FuckCommand extends Command {
     constructor() {
       super('fuck', {
-        aliases: ['fuck'],
+        aliases: ['fuck', 'frick'],
         channel: 'guild',
         cooldown: 8000,
         description: 'a command to hold someones hand but i hope its not premarital (custom command issued by robbie)',

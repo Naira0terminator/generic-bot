@@ -9,12 +9,14 @@ module.exports = class Test2Cmd extends Command {
             args: [
                 {
                     id: 'arg',
+                    type: 'member',
+                    match: 'rest',
                 }
             ]
         });
     }
     async exec(message, { arg }) {
 
-        console.log('hello commit')
+        message.channel.send(arg.user.username);
     }
 }
