@@ -1,12 +1,9 @@
-const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler, } = require('discord-akairo');
+const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler } = require('discord-akairo');
 const config = require('../../config.json');
 const readyEvent = require('../listeners/client/ready');
-const Keyv = require('keyv');
 const redis = require('./redis');
 const qdb = require('quick.db');
 const sleep = require('util').promisify(setTimeout);
-const { promisify } = require('util');
-const settings = new Keyv('redis://@localhost:6379');
 const modLogger = require('./modLogs.js');
 const taskManager = require('./taskManager.js');
 
@@ -60,17 +57,12 @@ module.exports = class Client extends AkairoClient {
         this.queue = new Map();
         this.newMember = new Map();
         this.msgCache = new Map();
-        this.settings = settings;
         this.redis = redis;
         this.qdb = qdb;
         this.config = config;
         this.modLog = modLogger;
         this.taskManager = taskManager;
 
-        this.async = async (action, bind, key) => {
-            const Async = promisify(action).bind(bind);
-            return await Async(key);
-        }
 
         this.resolve = (type, object, guild) => {
             switch(type) {

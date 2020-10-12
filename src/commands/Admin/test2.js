@@ -9,7 +9,7 @@ module.exports = class Test2Cmd extends Command {
             args: [
                 {
                     id: 'arg',
-                    type: 'member',
+                    type: 'string',
                     match: 'rest',
                 }
             ]
@@ -17,6 +17,6 @@ module.exports = class Test2Cmd extends Command {
     }
     async exec(message, { arg }) {
 
-        message.channel.send(arg.user.username);
+        message.channel.send(arg);
     }
 }

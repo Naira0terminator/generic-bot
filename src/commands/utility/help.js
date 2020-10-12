@@ -13,7 +13,6 @@ module.exports = class HelpCommand extends Command {
 					default: null
 				}
 			],
-			cooldown: 60000,
 			description: {
 				content: 'Displays information about a command',
 				usage: '[command]',

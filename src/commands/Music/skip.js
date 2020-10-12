@@ -19,6 +19,6 @@ module.exports = class skipCmd extends Command {
         if(!serverQueue) return message.reply('there is nothing playing right now!');
 
         serverQueue.connection.dispatcher.end(`skipped by ${message.author.tag}`);
-        message.channel.send('song skipped!');
+        message.util.send('song skipped!');
     }
 }

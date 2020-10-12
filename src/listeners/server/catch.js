@@ -22,7 +22,7 @@ module.exports = class catchEvent extends Listener {
         let isCaught = false;
 
         const prefixArray = ['/', '!', '.', '<'];
-        const suffixArray = ['get', 'catch', 'gimme', 'mine', 'yoink'];
+        const suffixArray = ['get', 'catch', 'gimme', 'mine'];
         const prefix = prefixArray[Math.floor(Math.random() * prefixArray.length)];
         const suffix = suffixArray[Math.floor(Math.random() * suffixArray.length)];
         const catchWord = prefix + suffix;

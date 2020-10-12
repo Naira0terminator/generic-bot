@@ -28,7 +28,10 @@ module.exports = class playCmd extends Command {
         if(!query) return message.reply("You must provide a song for me to play!");
         if(!channel) return message.reply("You must be in a voice channel to play music!");
 
-        const msg = await message.channel.send('searching...');
+        const msg = await message.channel.send(this.client.util.embed()
+        .setDescription("Searching...")
+        .setColor("YELLOW"));
+
         const { body } = await request
         .get('https://www.googleapis.com/youtube/v3/search')
         .query({
@@ -94,7 +97,11 @@ module.exports = class playCmd extends Command {
             })
             .setVolumeLogarithmic(queue.volume / 5);
 
-            await msg.edit(`playing **${song.title}**`)
+            await msg.edit(this.client.util.embed()
+            .setAuthor("Added to queue", 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQeql3Zd_XgQZ4KOoQwUWtawrWRqeQf1o7Mdw&usqp=CAU')
+            .setThumbnail(song.thumbnail)
+            .setDescription(`[${song.title}](${song.url})`)
+            .setColor("GREEN"));
 
         };
 
