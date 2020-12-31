@@ -49,5 +49,3 @@ module.exports = class reminderCmd extends Command {
         }
     }
 }
-
-

@@ -44,7 +44,7 @@ module.exports = class loveCmd extends Command {
         .setColor('RANDOM')
         if(member.id == message.author.id) embed.setDescription('you\'re precious and i love you');
         else embed.setDescription(love());
-        message.channel.send(embed);
+        message.util.send(embed);
           
     }
 }

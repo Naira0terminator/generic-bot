@@ -1,0 +1,103 @@
+const { Command } = require('discord-akairo');
+const request = require('node-superfetch');
+const moment = require('moment');
+
+module.exports = class PlayCmd extends Command {
+    constructor() {
+        super('play', {
+            aliases: ['play', 'p'],
+            cooldown: 5000,
+            lock: 'guild',
+            channel: 'guild',
+            clientPermissions: ['CONNECT', 'SPEAK'],
+            description: {
+                content: 'plays any youtube video in voice chat. uses googles search api to give the most accurate results',
+                usage: '<song name>',
+            },
+            args: [
+                {
+                    id: 'query',
+                    type: 'string',
+                    match: 'rest',
+                },
+            ]
+        });
+    }
+    async exec(message, { query }) {
+
+        const { channel } = message.member.voice;
+        if(!channel) return message.reply('you must be in a voice channel to play songs!');
+
+        const msg = await message.channel.send(this.client.util.embed()
+        .setDescription("Searching...")
+        .setColor("YELLOW"));
+
+        const { body } = await request
+        .get('https://www.googleapis.com/youtube/v3/search')
+        .query({
+            part: 'snippet',
+            type: 'video',
+            maxResults: 1,
+            q: query,
+            key: this.client.config.youtubeKey,
+        });
+
+        if(!body.items.length) 
+            return await msg.edit(this.client.util.embed()
+                .setDescription('Could not find any results!')
+                .setColor("RED"));
+
+        const data = body.items[0];
+        
+        // let node = this.client.player.node;
+
+        // let search = await node.rest.resolve(`https://www.youtube.com/watch?v=${data.id.videoId}`, 'youtube');
+        // search = search.tracks.shift();
+
+        const song = {
+            title: data.snippet.title,
+            thumbnail: data.snippet.thumbnails.high.url,
+            url: `https://www.youtube.com/watch?v=${data.id.videoId}`,
+            // duration: search.info.length,
+            // track: search,
+        };
+
+        const ExistingQueue = this.client.queue.get(message.guild.id);
+
+        if(ExistingQueue) {
+            if(ExistingQueue.songs.length >= 100) return  await msg.edit(this.client.util.embed()
+            .setDescription('Maximum queue limit has been reached!')
+            .setColor("RED"));
+
+            ExistingQueue.songs.push(song);
+            this.client.player.play(message, search, node);
+            return await msg.edit(this.client.util.embed()
+            .setAuthor("Added to queue", 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQeql3Zd_XgQZ4KOoQwUWtawrWRqeQf1o7Mdw&usqp=CAU')
+            .setThumbnail(song.thumbnail)
+            .setDescription(`[${song.title}](${song.url})`)
+            .setColor("GREEN")
+            .setFooter(`Video duration: ${moment(search.info.length).format('mm:ss')}`));
+        }
+
+        const queue = {
+            textChannel: message.channel,
+            voiceChannel: channel,
+            playing: true,
+            songs: [song],
+        }
+        
+        // const displatcher = await this.client.queue.play(message, search, node);
+
+        // if(displatcher)
+        //     displatcher.play();
+
+        this.client.player.play(message, search, node);
+
+        await msg.edit(this.client.util.embed()
+            .setAuthor("Added to queue", 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQeql3Zd_XgQZ4KOoQwUWtawrWRqeQf1o7Mdw&usqp=CAU')
+            .setThumbnail(song.thumbnail)
+            .setDescription(`[${song.title}](${song.url})`)
+            .setColor("GREEN")
+            .setFooter(`Video duration: ${moment(search.info.length).format('mm:ss')}`));
+    }
+}

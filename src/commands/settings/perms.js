@@ -68,7 +68,7 @@ module.exports = class permsCmd extends Command {
         }
 
         if(!perm) {
-            const prefix = await this.client.settings.get(message.guild.id) || this.client.config.prefix;
+            const prefix = await this.client.qdb.get(message.guild.id) || this.client.config.prefix;
             return message.channel.send(this.client.util.embed()
             .setTitle('setting perms')
             .setDescription(`to set perms first provide the command then the role that can use the command (only works for moderation commands)

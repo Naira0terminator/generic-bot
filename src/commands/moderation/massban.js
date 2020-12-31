@@ -1,4 +1,5 @@
 const { Command } = require('discord-akairo');
+const ms = require('ms')
 
 module.exports = class testCmd extends Command {
     constructor() {
@@ -12,82 +13,79 @@ module.exports = class testCmd extends Command {
             },
             args: [
                 {
-                    id: 'get',
+                    id: 'user',
                     match: 'rest',
                 },
             ],
-            
         });
     }
-    async exec(message,  { get }) {
+    async exec(message,  { user }) {
 
         const getPerms = await this.client.qdb.get(`guild[${message.guild.id}].perms.massban`);
         const banRole = await message.guild.roles.cache.get(getPerms);
 
-        if(banRole) 
-            if(!message.member.roles.cache.has(banRole.id) && !message.member.permissions.has('ADMINISTRATOR')) 
-                return message.reply('You do not have permissions to use the massban command!');
+        if(!banRole) 
+            return message.reply("No ban perms have been setup.");
 
-        if(!get) return message.reply('you must provide atleast one user to ban!');
+        if(!message.member.roles.cache.has(banRole.id)) 
+            return message.reply('You do not have permissions to use the massban command!');
 
-        if(message.mentions.users.size) {
+        if(!user) 
+            return message.reply("You must provide at least one user.");
 
-            if(message.mentions.users.size > 20) return message.reply('you cannot ban more then 20 users at a time!');
+        let users = user.split(/\s+/);
 
-            let userIds = [];
-            message.mentions.members.forEach(members => userIds.push(members.id));
-            if(userIds.includes(message.author.id)) return message.reply('you cant ban yourself silly... unless?');
-                
-            let banEnd = [];
-            message.mentions.members.forEach(members => {
-                if(message.member.roles.highest.rawPosition <= members.roles.highest.rawPosition) return banEnd.push('yes');
-            });
-            if(banEnd.length > 0) return message.reply('one or more of the provided user ids have roles above you!');
-            const banning = await message.util.send(`banning \`${message.mentions.users.size}\` members`);
-            try {
-                await message.mentions.members.forEach(async members => await message.guild.members.ban(members, {days: 7, reason: `mass banned by: ${message.author.tag}`}));
-            } catch(err) {
-                console.log(err);
-                return message.reply('one or more users could not be banned!');
-            }
+        await message.util.send(`Banning \`${users.length}\` users...`);
+
+        if(users.length > 20) 
+            return message.util.reply("You cannot massban more then 20 users at a time.");
+        
+        let couldNotBan = {
+            count: 0,
+            users: []
+        };
+
+        let banned = 0;
+
+        const start = process.hrtime();
+
+        for(let i = 0; i != users.length; i++) {
             
-            return await banning.edit(`\`${message.mentions.users.size}\` members have been banned!`);
+            let userObj = users[i];
+            userObj = message.guild.members.cache.get(userObj.match(/^<@!*\d+>$/) ? userObj.slice(3, userObj.indexOf('>')) : userObj);
 
+            if(userObj) {
+                if(message.member.roles.highest.rawPosition <= userObj.roles.highest.rawPosition)
+                    continue;
+            }
+
+            if(!userObj) 
+                userObj = users[i];
+            
+            if((userObj.id || userObj) === message.author.id) 
+                continue;
+
+            try {
+                await message.guild.members.ban(userObj, {days:7, reason: `Mass banned by: ${message.author.tag}`});
+            } catch(err) {
+                couldNotBan.count++
+                couldNotBan.users.push(userObj);
+                continue;
+            }
+
+            banned++;
         }
 
-        const userIDs = get.split(/\s|\n/g);
-        let filterIDs = userIDs.filter(item => item);
+        const end = process.hrtime(start);
+
+        let banMessage = `Banned \`${banned}\` users in **${ms((end[0]* 1000000000 + end[1]) / 1000000, {long: true})}**`
+
+        if(couldNotBan.count > 0) 
+            banMessage += `\nCould not ban \`${couldNotBan.count}\` users [${couldNotBan.users.join(',')}]`;
         
-        if(filterIDs.includes(message.author.id)) {
-            filterIDs = filterIDs.filter(item => item !== message.author.id);
-        }
+        if(couldNotBan.count > 0 && banned < 1) 
+            banMessage = "Could not ban any of the provided users";
 
-        if(filterIDs.length > 20) return message.reply('you cannot mass ban more then 20 users at a time!');
-
-        let userEnd = [];
-        userIDs.forEach(id => {
-            let getMembers = message.guild.members.cache.get(id);
-            if(getMembers) 
-              if(message.member.roles.highest.rawPosition <= getMembers.roles.highest.rawPosition) 
-                  userEnd.push(getMembers.id);
-        });
-
-        if(userEnd.length > 0) return message.reply('one or more of the provided user ids have roles above you!');
-
-        const banning = await message.util.send(`banning \`${filterIDs.length}\` members`);
-
-        let banCount = [];
-        try {
-           await filterIDs.forEach(async id => {
-              await message.guild.members.ban(id, {days:7, reason: `mass banned by: ${message.author.tag}`}).then(banCount.push(id)
-            )});
-        } catch(err) {
-            console.log(err);
-            message.reply('one or more users could not be banned!');
-        }
-        
-        await banning.edit(`\`${banCount.length}\` members have been banned!`);
-
-        
+        message.util.send(banMessage);
     }
 }

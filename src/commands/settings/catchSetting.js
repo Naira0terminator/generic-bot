@@ -55,6 +55,7 @@ module.exports = class catchSettings extends Command {
         }
 
         if(clear) {
+            const member = message.guild.members.cache.get(arg) || message.mentions.members.first();
             await this.client.redis.zrem(`guild[${message.guild.id}]-catch`, `${member.id}`);
             return message.reply(`**${member.user.username}**'s catch Data has been reset!`);
         }

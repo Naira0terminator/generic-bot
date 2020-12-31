@@ -6,6 +6,8 @@ const qdb = require('quick.db');
 const sleep = require('util').promisify(setTimeout);
 const modLogger = require('./modLogs.js');
 const taskManager = require('./taskManager.js');
+const MusicPlayer = require('./musicPlayer.js');
+const Queue = require('./queue');
 
 module.exports = class Client extends AkairoClient {
     constructor() {
@@ -62,7 +64,9 @@ module.exports = class Client extends AkairoClient {
         this.config = config;
         this.modLog = modLogger;
         this.taskManager = taskManager;
+        this.player = new MusicPlayer(this);
 
+        
 
         this.resolve = (type, object, guild) => {
             switch(type) {
