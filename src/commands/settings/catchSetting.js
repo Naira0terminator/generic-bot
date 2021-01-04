@@ -42,8 +42,11 @@ module.exports = class catchSettings extends Command {
             let data = await this.client.redis.get(`guild[${message.guild.id}]-catch-state`);
             if(!data) return message.reply('you must set a catch channel before you can toggle it on or off!');
 
-            if(data === 'on') data = await this.client.redis.set(`guild[${message.guild.id}]-catch-state`, 'off');
-            else data = await this.client.redis.set(`guild[${message.guild.id}]-catch-state`, 'on');
+            if(data === 'on') 
+                data = await this.client.redis.set(`guild[${message.guild.id}]-catch-state`, 'off');
+            if(data === 'off')
+                data = await this.client.redis.set(`guild[${message.guild.id}]-catch-state`, 'on');
+            else return message.util.reply("Invalid data set!");
             
             return message.util.reply(`catch has been set to: \`${data === 'off' ? 'Disabled' : 'Enabled'}\``);
         }

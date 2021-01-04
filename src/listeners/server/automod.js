@@ -11,6 +11,8 @@ module.exports = class automodEvent extends Listener {
 
         // color channel cleaner | this is above the rest because it needs to delete bot messages as well.
 
+        if(message.channel.type === 'dm') return;
+
         if(message.guild.id !== '646404524457721866') return;
         
         if(message.channel.id === '701954399613878404') {

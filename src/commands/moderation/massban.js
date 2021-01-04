@@ -14,6 +14,7 @@ module.exports = class testCmd extends Command {
             args: [
                 {
                     id: 'user',
+                    type: 'string',
                     match: 'rest',
                 },
             ],
@@ -33,13 +34,13 @@ module.exports = class testCmd extends Command {
         if(!user) 
             return message.reply("You must provide at least one user.");
 
-        let users = user.split(/\s+/);
-
-        await message.util.send(`Banning \`${users.length}\` users...`);
+        const users = user.split(/\s+/);
 
         if(users.length > 20) 
             return message.util.reply("You cannot massban more then 20 users at a time.");
-        
+
+        await message.util.send(`Banning \`${users.length}\` users...`);
+
         let couldNotBan = {
             count: 0,
             users: []
@@ -51,12 +52,15 @@ module.exports = class testCmd extends Command {
 
         for(let i = 0; i != users.length; i++) {
             
-            let userObj = users[i];
+            let userObj = String(users[i]);
             userObj = message.guild.members.cache.get(userObj.match(/^<@!*\d+>$/) ? userObj.slice(3, userObj.indexOf('>')) : userObj);
 
             if(userObj) {
-                if(message.member.roles.highest.rawPosition <= userObj.roles.highest.rawPosition)
+                if(message.member.roles.highest.rawPosition <= userObj.roles.highest.rawPosition || message.author.id === userObj.id) {
+                    couldNotBan.count++;
+                    users.push(userObj);
                     continue;
+                }
             }
 
             if(!userObj) 
