@@ -1,6 +1,7 @@
 # A multi purpose discord bot.
 
 ### this bot is still a work in progress.
+note the fun stuff is on the test branch cause of a merge issue.
 
 ## features
 1) a fully customizable leveling system
