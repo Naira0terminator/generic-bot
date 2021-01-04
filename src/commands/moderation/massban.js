@@ -45,7 +45,6 @@ module.exports = class testCmd extends Command {
             count: 0,
             users: []
         };
-
         let banned = 0;
 
         const start = process.hrtime();
@@ -65,9 +64,6 @@ module.exports = class testCmd extends Command {
 
             if(!userObj) 
                 userObj = users[i];
-            
-            if((userObj.id || userObj) === message.author.id) 
-                continue;
 
             try {
                 await message.guild.members.ban(userObj, {days:7, reason: `Mass banned by: ${message.author.tag}`});

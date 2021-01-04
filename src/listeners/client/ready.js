@@ -47,7 +47,7 @@ module.exports = class readyEvent extends Listener {
         // this.client.player.initEvents();
 
         const nodes = [{
-            id: 'main',
+            id: 'main node',
             host: 'localhost',
             port: 6090,
             password: 'mypassword',
