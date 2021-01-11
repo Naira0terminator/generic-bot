@@ -25,7 +25,7 @@ module.exports = class loveCmd extends Command {
         const self = "**" + message.author.username + "**" ;
         const other = "**" + member.user.username + "**";
             
-        function love() {
+        const love = () => {
             let rand = [
                 `${self} showers ${other} with all their love and affection`, 
                 `${self} gives ${other} endless cuddles and kisses`, 
@@ -41,10 +41,13 @@ module.exports = class loveCmd extends Command {
         }
 
         const embed = this.client.util.embed()
-        .setColor('RANDOM')
-        if(member.id == message.author.id) embed.setDescription('you\'re precious and i love you');
-        else embed.setDescription(love());
+            .setColor('RANDOM')
+
+        if(member.id == message.author.id) 
+            embed.setDescription('you\'re precious and i love you');
+        else 
+            embed.setDescription(love());
+
         message.util.send(embed);
-          
     }
 }

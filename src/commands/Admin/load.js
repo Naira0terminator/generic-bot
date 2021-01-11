@@ -19,9 +19,9 @@ module.exports = class loadCmd extends Command {
         const embed = this.client.util.embed()
 
         try {
-            const command = this.handler.findCommand(cmd)
-            console.log(`filepath: ${command.filepath}`);
-            this.handler.load(command.filepath);
+            // const command = this.handler.findCommand(cmd)
+            // console.log(`filepath: ${command.filepath}`);
+            this.handler.load(cmd);
             
             embed.setDescription(`Command **${cmd}** has been loaded!`)
             embed.setColor('GREEN')
