@@ -10,6 +10,9 @@ module.exports = class baseMessage extends Listener {
     }
     async exec(message) {
         
+        if(this.client.qdb.has(`blacklist.[${message.author.id}]`))
+            return;
+
         if(message.author.bot || message.channel.type === 'dm') return;
 
         await this.client.redis.zincr(`guild[${message.guild.id}]-userMessages`, 1, `${message.author.id}`);

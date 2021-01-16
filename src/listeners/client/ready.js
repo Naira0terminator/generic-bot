@@ -23,6 +23,8 @@ module.exports = class readyEvent extends Listener {
         await this.client.listenerHandler.loadAll(this.client.listenerHandler.directory, path => !path.includes('ready.js'));
         console.log(`$ | loaded ${this.client.listenerHandler.modules.size} Listeners`);
 
+        await this.client.inhibitorHandler.loadAll();
+      
         const end = process.hrtime(start);
 
         console.log(`$ | initialized Commands & Listeners in ${(end[0]* 1000000000 + end[1]) / 1000000} MS`);

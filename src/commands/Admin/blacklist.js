@@ -16,19 +16,32 @@ module.exports = class blacklistCmd extends Command {
                     type: 'string',
                     match: 'rest',
                 },
+                {
+                    id: 'all',
+                    math: 'flag',
+                    flag: '-all'
+                }
             ],
         });
     }
-    exec(message, {user , reason}) {
+    exec(message, {user , reason, flag}) {
 
-        this.client.qdb.set(`blacklist.[${user}]`, {
-            id: user,
+        if(!user || !reason)
+            return message.reply("You must provide a valid reason and user!");
+
+        user = this.client.users.cache.get(user) || message.mentions.users.first() || this.client.users.cache.find(u => u.username.toLowerCase() === user.toLowerCase());
+
+        if(!user) 
+            return;
+
+        if(this.client.qdb.has(`blacklist.[${user.id}]`))
+            return message.reply("That user is already blacklisted!");
+
+        this.client.qdb.set(`blacklist.[${user.id}]`, {
+            id: user.id,
             reason: reason
         });
 
-        let getUser = this.client.users.cache.get(user).tag;
-        if(!user) getUser = user;
-
-        message.channel.send(`**${getUser}** Has been blacklisted!`);
+        message.channel.send(`**${user.tag}** Has been blacklisted!`);
     }
 }

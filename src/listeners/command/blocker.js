@@ -22,7 +22,9 @@ module.exports = class CommandBlockedListener extends Listener {
         
         console.log('info', `\n\nBlocking service:\n\nuser: ${message.author.username} | ${message.author.id}\nCommand: ${command.id}\nreason: ${reason}\nChannel: ${ch}\nTime: ${time}`);
 
-        if(!reply) return message.reply(`you cannot use **${command}**`);
-        return message.reply(reply);
+        if(!reply) 
+            return message.reply(`you cannot use **${command}**`);
+
+        message.reply(reply);
     }
 }

@@ -42,10 +42,11 @@ module.exports = class Client extends AkairoClient {
         });
 
         this.inhibitorHandler = new InhibitorHandler(this, {
-            directory: './src/inhibitor'
+            directory: './src/inhibitor/'
         });
 
         this.commandHandler.useListenerHandler(this.listenerHandler);
+        this.commandHandler.useInhibitorHandler(this.inhibitorHandler);
 
         this.listenerHandler.setEmitters({
             commandHandler: this.commandHandler,

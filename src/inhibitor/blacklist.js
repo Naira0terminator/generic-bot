@@ -4,11 +4,11 @@ module.exports = class BlacklistInhibitor extends Inhibitor {
     constructor() {
         super('blacklistInhibitor', {
             reason: 'blacklist',
+            priority: 1,
             type: 'all'
         })
     }
     exec(message) {
-        const blacklist = this.client.qdb.get(`blacklist.[${user}]`)
-        return blacklist.id === message.author.id;
+        return this.client.qdb.has(`blacklist.[${message.author.id}]`);
     }
 }
